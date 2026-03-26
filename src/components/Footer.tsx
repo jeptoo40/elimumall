@@ -1,4 +1,4 @@
-import React from "react";
+
 import { FaPhone, FaMapMarkerAlt, FaGlobe, FaEnvelope } from "react-icons/fa";
 
 

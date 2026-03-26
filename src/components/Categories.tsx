@@ -1,4 +1,3 @@
-import React from "react";
 
 const categories = [
     { price: "$10", image: "/images/books.jpg" },

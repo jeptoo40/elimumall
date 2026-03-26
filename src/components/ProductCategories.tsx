@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import  { useRef, useEffect } from "react";
 const laptopProducts = [
     { name: "MacBook Pro", price: "$1200", image: "/images/laptop1.jpg", sale: true },
     { name: "Dell XPS 13", price: "$1000", image: "/images/laptop2.jpg", sale: false },
