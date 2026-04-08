@@ -57,7 +57,7 @@ const StorybooksTools = () => {
     return filteredItems;
   };
 
-  // ✅ FIX: typed parameters
+
   const handleWhatsApp = (price: string, name: string) => {
     const message = `Hello, I'm interested in ${name} priced at ${price}. How can I place my order?`;
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;

@@ -3,7 +3,7 @@ import TopBar from "../TopBar";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-// Type definition for shop items
+
 type ShopItem = {
   name?: string;
   image: string;
@@ -14,6 +14,7 @@ type ShopItem = {
 const shopItems: ShopItem[] = [
   { name: "Educators", image: "/images/e1.jpg", price: "KSh 950", category: "Education" },
   { name: "Dell Laptop", image: "/images/dell-laptop.jpg", price: "KSh 45000", category: "Laptops" },
+
   { name: "School Trip", image: "/images/n1.jpg", price: "KSh 1150", category: "Novels" },
   { name: "HP Laptop", image: "/images/hp-laptop.jpg", price: "KSh 42000", category: "Laptops" },
   { name: "Color Pencils", image: "/images/Color Pencils1.jpg", price: "KSh 1150", category: "Sketch pad" },
@@ -40,7 +41,7 @@ const ShopTools = () => {
   const [sort, setSort] = useState<"default" | "price-low" | "price-high">("default");
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
 
-  // Filter items by category
+  // categorizing
   const filteredItems = useMemo(() => {
     return selectedCategory === "All"
       ? shopItems
@@ -60,7 +61,7 @@ const ShopTools = () => {
     return filteredItems;
   }, [filteredItems, sort]);
 
-  // WhatsApp order handler
+  
   const handleWhatsApp = (price: string, name: string) => {
     const message = `Hello, I'm interested in ${name} priced at ${price}. How can I place my order?`;
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
@@ -76,7 +77,7 @@ const ShopTools = () => {
         <h2>Shop</h2>
 
         <div className="shop-container">
-          {/* SIDEBAR */}
+          
           <div className="shop-sidebar">
             <div className="sidebar-box">
               <h3>Categories</h3>
@@ -92,9 +93,9 @@ const ShopTools = () => {
             </div>
           </div>
 
-          {/* MAIN CONTENT */}
+
           <div className="shop-main">
-            {/* Top bar */}
+            
             <div className="shop-topbar">
               <select onChange={(e) => setSort(e.target.value as "default" | "price-low" | "price-high")}>
                 <option value="default">Default sorting</option>
@@ -103,7 +104,7 @@ const ShopTools = () => {
               </select>
             </div>
 
-            {/* Product Grid */}
+            
             <div className="shop-tools-grid">
               {sortedItems.map((item, index) => (
                 <div className="shop-tools-card" key={`${item.name || "item"}-${index}`}>

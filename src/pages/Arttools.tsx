@@ -3,7 +3,7 @@ import TopBar from "../TopBar";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-// ✅ Type definition for items
+
 type ArtItem = {
   name: string;
   image: string;
@@ -15,22 +15,31 @@ const artItems: ArtItem[] = [
   { name: "Sketch Book", image: "/images/Sketch.jpg", price: "KSh 1000", category: "Sketch" },
   { name: "Watercolor Set", image: "/images/Watercolor Set.jpg", price: "KSh 350", category: "Painting" },
   { name: "Brush Set", image: "/images/Brush Set.jpg", price: "KSh 700", category: "Brushes" },
+
   { name: "Canvas Pack", image: "/images/Canvas Pack.jpg", price: "KSh 400", category: "Canvas" },
   { name: "Color Pencils", image: "/images/Color Pencils.jpg", price: "KSh 1150", category: "Pencils" },
+
   { name: "Markers Set", image: "/images/Markers Set.jpg", price: "KSh 1000", category: "Markers" },
 
   { name: "Sketch Book", image: "/images/Sketch Book2.jpg", price: "KSh 1000", category: "Sketch" },
   { name: "Watercolor Set", image: "/images/Watercolor Set1.jpg", price: "KSh 350", category: "Painting" },
+
   { name: "Brush Set", image: "/images/Brushes.jpg", price: "KSh 700", category: "Brushes" },
   { name: "Canvas Pack", image: "/images/NIB-CALLIGRAPHY-PEN.jpg", price: "KSh 400", category: "Canvas" },
+  
   { name: "Color Pencils", image: "/images/6B-STAEDTLER-PENCIL-1-300x300.jpg", price: "KSh 150", category: "Pencils" },
+
   { name: "Markers Set", image: "/images/crochet.jpeg", price: "KSh 1100", category: "Markers" },
 
   { name: "Sketch Book", image: "/images/Sketch Book.jpg", price: "KSh 600", category: "Sketch pad" },
+
   { name: "Watercolor Set", image: "/images/Watercolor.jpg", price: "KSh 750", category: "Painting" },
+
   { name: "Brush Set", image: "/images/Brush Set.jpg", price: "KSh 700", category: "Brushes" },
   { name: "Canvas Pack", image: "/images/Canvas Pack1.jpg", price: "KSh 400", category: "Canvas" },
+
   { name: "Color Pencils", image: "/images/Color Pencils1.jpg", price: "KSh 1150", category: "Pencils" },
+
   { name: "Markers Set", image: "/images/Markers Set1.jpg", price: "KSh 1700", category: "Markers" },
 ];
 
@@ -39,9 +48,9 @@ const phoneNumber = "254724491544";
 const ArtTools = () => {
   const [sort, setSort] = useState<"default" | "price-low" | "price-high">("default");
 
-  const filteredItems = artItems; // Showing all for now
+  const filteredItems = artItems; 
 
-  // ✅ Sorting function
+ 
   const sortedItems = () => {
     if (sort === "price-low") {
       return [...filteredItems].sort(
@@ -56,7 +65,7 @@ const ArtTools = () => {
     return filteredItems;
   };
 
-  // ✅ WhatsApp ordering
+  // handling whatsap
   const handleWhatsApp = (price: string, name: string) => {
     const message = `Hello, I'm interested in ${name} priced at ${price}. How can I place my order?`;
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
@@ -65,7 +74,7 @@ const ArtTools = () => {
 
   return (
     <>
-      {/* Keep TopBar and Navbar */}
+      
       <TopBar />
       <Navbar />
 
@@ -81,7 +90,7 @@ const ArtTools = () => {
           </select>
         </div>
 
-        {/* Art items grid */}
+      
         <div className="art-tools-grid">
           {sortedItems().map((item, index) => (
             <div className="art-tools-card" key={index}>

@@ -19,7 +19,7 @@ const SetbooksItems: Item[] = [
   { name: "Kigogo", image: "/images/s3.jpg", price: "KSh 350", category: "Setbooks" },
   { name: "THUNDER", image: "/images/STORY4.jpg", price: "", category: "Storybooks" },
 
-  // ✅ FIX: added missing name
+ 
   { name: "Unknown Book", image: "/images/n2.jpg", price: "KSh 550", category: "Novels" },
 
   { name: "Chozi la Heri", image: "/images/s4.jpg", price: "KSh 350", category: "Setbooks" },
@@ -33,7 +33,7 @@ const SetbooksItems: Item[] = [
 
 const phoneNumber = "254724491544";
 
-// ✅ FIXED categories
+// categories
 const categories = ["All", "Setbooks", "Storybooks", "Novels"];
 
 const SetbooksTools = () => {
@@ -63,7 +63,7 @@ const SetbooksTools = () => {
     return filteredItems;
   };
 
-  // ✅ FIXED types
+  // types
   const handleWhatsApp = (price: string, name: string) => {
     const message = `Hello, I'm interested in ${name} priced at ${price}. How can I place my order?`;
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;

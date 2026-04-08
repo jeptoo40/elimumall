@@ -61,7 +61,7 @@ const TechTools = () => {
       <section className="tech-tools-section">
         <h2>Laptops & Computers</h2>
 
-        {/* Category Filters & Sorting */}
+        
         <div className="tech-tools-controls">
           <div className="category-filter">
             {categories.map((cat) => (
