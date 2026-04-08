@@ -3,7 +3,14 @@ import TopBar from "../TopBar";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-const techItems = [
+type TechItem = {
+  name: string;
+  image: string;
+  price: string;
+  category: string;
+};
+
+const techItems: TechItem[] = [
   { name: "Dell Laptop", image: "/images/dell-laptop.jpg", price: "KSh 45000", category: "Laptops" },
   { name: "HP Laptop", image: "/images/hp-laptop.jpg", price: "KSh 42000", category: "Laptops" },
   { name: "MacBook Air", image: "/images/macbook-air.jpg", price: "KSh 120000", category: "Laptops" },
@@ -15,20 +22,17 @@ const techItems = [
   { name: "SSD 1TB", image: "/images/ssd.jpg", price: "KSh 14000", category: "Storage" },
 ];
 
+const categories = ["All", "Laptops", "Accessories", "Storage"];
 const phoneNumber = "254724491544";
 
-const categories = ["All", "Laptops", "Accessories", "Storage"];
-
 const TechTools = () => {
-  const [sort, setSort] = useState("default");
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedCategory, setSelectedCategory] = useState<string>("All");
+  const [sort, setSort] = useState<string>("default");
 
-  // Filter by category
   const filteredItems = selectedCategory === "All"
     ? techItems
     : techItems.filter((item) => item.category === selectedCategory);
 
-  // Sorting function
   const sortedItems = () => {
     if (sort === "price-low") {
       return [...filteredItems].sort(
@@ -43,7 +47,7 @@ const TechTools = () => {
     return filteredItems;
   };
 
-  const handleWhatsApp = (price, name) => {
+  const handleWhatsApp = (price: string, name: string) => {
     const message = `Hello, I'm interested in ${name} priced at ${price}. How can I place my order?`;
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank");
@@ -57,11 +61,12 @@ const TechTools = () => {
       <section className="tech-tools-section">
         <h2>Laptops & Computers</h2>
 
+        {/* Category Filters & Sorting */}
         <div className="tech-tools-controls">
           <div className="category-filter">
-            {categories.map((cat, idx) => (
+            {categories.map((cat) => (
               <button
-                key={idx}
+                key={cat}
                 className={selectedCategory === cat ? "active" : ""}
                 onClick={() => setSelectedCategory(cat)}
               >
@@ -79,9 +84,10 @@ const TechTools = () => {
           </div>
         </div>
 
+        {/* Product Grid */}
         <div className="tech-tools-grid">
-          {sortedItems().map((item, index) => (
-            <div className="tech-tools-card" key={index}>
+          {sortedItems().map((item, idx) => (
+            <div className="tech-tools-card" key={idx}>
               <img src={item.image} alt={item.name} />
               <p className="tool-name">{item.name}</p>
               <p className="price">{item.price}</p>
