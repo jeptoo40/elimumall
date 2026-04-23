@@ -8,7 +8,6 @@ import ProductCategories from "../components/ProductCategories";
 import BestSeller from "../components/BestSeller";
 import Footer from "../components/Footer";
 
-
 const Home = () => {
   return (
     <div>
@@ -20,6 +19,7 @@ const Home = () => {
       <ProductCategories />
       <BestSeller/>
       <Footer/>
+     
      
     </div>
   );

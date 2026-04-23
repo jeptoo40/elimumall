@@ -1,13 +1,14 @@
-
 import { FaPhoneAlt } from "react-icons/fa";
 
 const TopBar = () => {
   return (
     <div className="topbar">
+      {/* LEFT - LOGO */}
       <div className="topbar-left">
         <img src="/images/Elimu logo.PNG" alt="logo" className="logo" />
       </div>
 
+      {/* CENTER - SEARCH */}
       <div className="topbar-center">
         <input
           type="text"
@@ -16,6 +17,7 @@ const TopBar = () => {
         />
       </div>
 
+      {/* RIGHT - CONTACT */}
       <div className="topbar-right">
         <div className="call-box">
           <FaPhoneAlt className="phone-icon" />

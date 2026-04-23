@@ -3,7 +3,7 @@ import TopBar from "../TopBar";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-// ✅ Define type
+
 type Item = {
   name: string;
   image: string;
@@ -16,7 +16,7 @@ const ArticleItems: Item[] = [
   { name: "Lindsay", image: "/images/pas2.jpg", price: "KSh 100", category: "Articles" },
   { name: "School Trip", image: "/images/n1.jpg", price: "KSh 1150", category: "Novels" },
 
-  // ✅ FIXED missing names
+
   { name: "Education Book 1", image: "/images/bs2.jpg", price: "KSh 700", category: "Education" },
 
   { name: "Rethinking", image: "/images/pas1.jpg", price: "KSh 50", category: "Articles" },
@@ -63,7 +63,7 @@ const ArticleTools = () => {
     return filteredItems;
   };
 
-  // ✅ FIXED types
+
   const handleWhatsApp = (price: string, name: string) => {
     const message = `Hello, I'm interested in ${name} priced at ${price}. How can I place my order?`;
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
