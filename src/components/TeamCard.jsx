@@ -7,7 +7,7 @@ const TeamCard = () => {
       </div>
 
       <div className="team-member">
-        <img src="/images/user1.jpg" alt="Brenda" />
+        <img src="/images/shanga8.jpg.jpeg" alt="Brenda" />
         <div>
           <p>Brenda</p>
           <span>Admin</span>
@@ -16,7 +16,7 @@ const TeamCard = () => {
       </div>
 
       <div className="team-member">
-        <img src="/images/user2.jpg" alt="Alex" />
+        <img src="/images/nature.jpg" alt="Alex" />
         <div>
           <p>Alex</p>
           <span>Support</span>

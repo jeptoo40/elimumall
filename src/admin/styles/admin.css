@@ -472,3 +472,278 @@ td {
 }
 
 
+
+
+
+
+@media screen and (max-width: 992px) {
+
+  .dashboard {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 15px;
+  }
+
+  .sidebar ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .sidebar li {
+    margin: 0;
+    padding: 10px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.08);
+    flex: 1 1 45%;
+    text-align: center;
+  }
+
+  .main {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .topbar {
+    padding: 15px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .topbar-right {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .topbar-right input {
+    width: 100%;
+  }
+
+  .profile-btn {
+    width: 100%;
+  }
+
+  .content {
+    padding: 15px;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .chart-container,
+  .purchases-card,
+  .sales-card {
+    overflow-x: auto;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .right-sidebar {
+    width: 100%;
+    padding: 15px;
+  }
+
+}
+
+
+
+@media screen and (max-width: 768px) {
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar li {
+    flex: 1 1 100%;
+  }
+
+  .logo img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .topbar {
+    font-size: 15px;
+  }
+
+  .content {
+    padding: 10px;
+  }
+
+  .card,
+  .chart-container,
+  .purchases-card,
+  .sales-card {
+    padding: 15px;
+  }
+
+  .team-member {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .chat-input {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .chat-input button {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  input,
+  button,
+  select,
+  textarea {
+    width: 100%;
+  }
+
+}
+
+
+
+
+@media screen and (max-width: 480px) {
+
+  .sidebar {
+    padding: 10px;
+  }
+
+  .topbar {
+    padding: 10px;
+  }
+
+  .content {
+    padding: 8px;
+  }
+
+  .card {
+    border-radius: 12px;
+  }
+
+  h2, h3 {
+    font-size: 18px;
+  }
+
+  p, td, th, span {
+    font-size: 13px;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+.menu-btn {
+  display: none;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 2000;
+
+  background: #3a0b15;
+  color: white;
+  border: none;
+
+  width: 45px;
+  height: 45px;
+
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.close-btn {
+  display: none;
+}
+
+
+/* MOBILE */
+@media screen and (max-width: 992px) {
+
+  .menu-btn {
+    display: block;
+  }
+
+  .sidebar-wrapper {
+    position: fixed;
+    left: -100%;
+    top: 0;
+
+    width: 260px;
+    height: 100vh;
+
+    z-index: 3000;
+    transition: 0.3s ease;
+  }
+
+  .sidebar-wrapper.show {
+    left: 0;
+  }
+
+  .sidebar {
+    width: 260px;
+    height: 100vh;
+    position: relative;
+  }
+
+  .close-btn {
+    display: block;
+
+    position: absolute;
+    top: 15px;
+    right: 15px;
+
+    background: red;
+    color: white;
+
+    border: none;
+    width: 35px;
+    height: 35px;
+
+    border-radius: 50%;
+    cursor: pointer;
+
+    z-index: 4000;
+  }
+
+  .main {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  @media screen and (max-width: 992px) {
+
+    .right-sidebar {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+  
+      padding: 15px;
+      margin-top: 20px;
+    }
+  
+  }
+
+}

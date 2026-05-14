@@ -1,7 +1,11 @@
 const Topbar = () => {
+  const user = JSON.parse(localStorage.getItem("user") || "null");
+
   return (
     <div className="topbar">
-      <h3>Dashboard</h3>
+    <h2>
+        Welcome, {user ? user.firstName : "Guest"}
+      </h2>
 
       <div className="topbar-right">
         <input type="text" placeholder="Search..." />
