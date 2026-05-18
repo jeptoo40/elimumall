@@ -10,7 +10,6 @@ import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
-
 import { useNavigate } from "react-router-dom";
 
 import logo from "../assets/Elimu logo.PNG";
@@ -57,8 +56,6 @@ export default function SignUp() {
 
       const result = await response.json();
 
-      console.log(result);
-
       if (result.message) {
 
         alert("Registered successfully");
@@ -72,9 +69,9 @@ export default function SignUp() {
 
     } catch (error) {
 
-      console.error("FULL ERROR:", error);
+      console.error(error);
 
-      alert("Something went wrong");
+      alert("Server connection failed");
     }
   };
 
@@ -101,6 +98,7 @@ export default function SignUp() {
         elevation={6}
         square
       >
+
         <Box
           sx={{
             my: 4,
@@ -157,20 +155,20 @@ export default function SignUp() {
               <Grid item xs={12}>
                 <TextField
                   name="email"
+                  type="email"
                   required
                   fullWidth
                   label="Email Address"
-                  type="email"
                 />
               </Grid>
 
               <Grid item xs={12}>
                 <TextField
                   name="password"
+                  type="password"
                   required
                   fullWidth
                   label="Password"
-                  type="password"
                 />
               </Grid>
 
@@ -179,7 +177,7 @@ export default function SignUp() {
                   control={<Checkbox color="primary" />}
                   label={
                     <span>
-                      I want to receive updates via email. or{" "}
+                      I want to receive updates via email or{" "}
                       <Link href="/signin" variant="body2">
                         Sign in
                       </Link>
