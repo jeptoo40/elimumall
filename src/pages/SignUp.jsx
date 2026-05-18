@@ -31,7 +31,7 @@ export default function SignUp() {
     };
 
     try {
-     const response = await fetch("https://elimumall.ct.ws/signup.php", {
+     const response = await fetch("https://elimumall.loveslife.biz/signup.php", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
