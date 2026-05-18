@@ -9,52 +9,75 @@ import Link from "@mui/material/Link";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-import logo from "../assets/Elimu logo.PNG";
-
 import Typography from "@mui/material/Typography";
 
 import { useNavigate } from "react-router-dom";
 
+import logo from "../assets/Elimu logo.PNG";
+
 export default function SignUp() {
+
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
+
     event.preventDefault();
 
-    const formData = new FormData(event.currentTarget);
+    const formData = new FormData();
 
-    const payload = {
-      firstName: formData.get("firstName"),
-      lastName: formData.get("lastName"),
-      email: formData.get("email"),
-      password: formData.get("password"),
-    };
+    formData.append(
+      "firstName",
+      event.currentTarget.firstName.value
+    );
+
+    formData.append(
+      "lastName",
+      event.currentTarget.lastName.value
+    );
+
+    formData.append(
+      "email",
+      event.currentTarget.email.value
+    );
+
+    formData.append(
+      "password",
+      event.currentTarget.password.value
+    );
 
     try {
-     const response = await fetch("https://elimumall.loveslife.biz/signup.php", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
+
+      const response = await fetch(
+        "https://elimumall.loveslife.biz/signup.php",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
 
       const result = await response.json();
 
+      console.log(result);
+
       if (result.message) {
+
         alert("Registered successfully");
 
-        // 👉 REDIRECT TO SIGNIN
         navigate("/signin");
+
       } else {
-        alert(result.error);
+
+        alert(result.error || "Signup failed");
       }
 
     } catch (error) {
-      console.error(error);
+
+      console.error("FULL ERROR:", error);
+
       alert("Something went wrong");
     }
   };
+
   return (
     <Grid
       container
@@ -68,8 +91,16 @@ export default function SignUp() {
       }}
     >
       <CssBaseline />
-  
-      <Grid item xs={11} sm={8} md={5} component={Paper} elevation={6} square>
+
+      <Grid
+        item
+        xs={11}
+        sm={8}
+        md={5}
+        component={Paper}
+        elevation={6}
+        square
+      >
         <Box
           sx={{
             my: 4,
@@ -79,60 +110,86 @@ export default function SignUp() {
             alignItems: "center",
           }}
         >
-        <Avatar
-  src={logo}
-  alt="Elimu Logo"
-  sx={{
-    width: 90,
-    height: 90,
-    m: 1,
-    borderRadius: "50%",
-    objectFit: "cover",
-  }}
-/>
+
+          <Avatar
+            src={logo}
+            alt="Elimu Logo"
+            sx={{
+              width: 90,
+              height: 90,
+              m: 1,
+              borderRadius: "50%",
+              objectFit: "cover",
+            }}
+          />
 
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
-  
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+
+          <Box
+            component="form"
+            noValidate
+            onSubmit={handleSubmit}
+            sx={{ mt: 3 }}
+          >
+
             <Grid container spacing={2}>
+
               <Grid item xs={12} sm={6}>
-              <TextField name="firstName" required fullWidth label="First Name" />
+                <TextField
+                  name="firstName"
+                  required
+                  fullWidth
+                  label="First Name"
+                />
               </Grid>
-  
+
               <Grid item xs={12} sm={6}>
-              <TextField name="lastName" required fullWidth label="Last Name" />
+                <TextField
+                  name="lastName"
+                  required
+                  fullWidth
+                  label="Last Name"
+                />
               </Grid>
-  
-              
+
               <Grid item xs={12}>
-              <TextField name="email" required fullWidth label="Email Address" />
+                <TextField
+                  name="email"
+                  required
+                  fullWidth
+                  label="Email Address"
+                  type="email"
+                />
               </Grid>
-  
+
               <Grid item xs={12}>
-              <TextField
-              name="password"
-              required
-              fullWidth
-              label="Password"
-              type="password"
-              />
+                <TextField
+                  name="password"
+                  required
+                  fullWidth
+                  label="Password"
+                  type="password"
+                />
               </Grid>
-  
+
               <Grid item xs={12}>
-  <FormControlLabel
-    control={<Checkbox color="primary" />}
-    label={
-      <span>
-        I want to receive updates via email. or {" "}
-        <Link href="/signin" variant="body2">
-          Sign in
-        </Link>
-      </span>
-    }
-  />
-</Grid>
+                <FormControlLabel
+                  control={<Checkbox color="primary" />}
+                  label={
+                    <span>
+                      I want to receive updates via email. or{" "}
+                      <Link href="/signin" variant="body2">
+                        Sign in
+                      </Link>
+                    </span>
+                  }
+                />
+              </Grid>
+
+            </Grid>
+
             <Button
               type="submit"
               fullWidth
@@ -141,9 +198,7 @@ export default function SignUp() {
             >
               Sign Up
             </Button>
-  
-            
-            </Grid>
+
           </Box>
         </Box>
       </Grid>
