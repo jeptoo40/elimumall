@@ -22,27 +22,9 @@ export default function SignUp() {
 
     event.preventDefault();
 
-    const formData = new FormData();
+    const form = event.currentTarget;
 
-    formData.append(
-      "firstName",
-      event.currentTarget.firstName.value
-    );
-
-    formData.append(
-      "lastName",
-      event.currentTarget.lastName.value
-    );
-
-    formData.append(
-      "email",
-      event.currentTarget.email.value
-    );
-
-    formData.append(
-      "password",
-      event.currentTarget.password.value
-    );
+    const formData = new FormData(form);
 
     try {
 
@@ -54,9 +36,11 @@ export default function SignUp() {
         }
       );
 
-      const result = await response.json();
+      const data = await response.json();
 
-      if (result.message) {
+      console.log(data);
+
+      if (data.message) {
 
         alert("Registered successfully");
 
@@ -64,12 +48,12 @@ export default function SignUp() {
 
       } else {
 
-        alert(result.error || "Signup failed");
+        alert(data.error || "Signup failed");
       }
 
     } catch (error) {
 
-      console.error(error);
+      console.error("ERROR:", error);
 
       alert("Server connection failed");
     }
@@ -127,7 +111,6 @@ export default function SignUp() {
 
           <Box
             component="form"
-            noValidate
             onSubmit={handleSubmit}
             sx={{ mt: 3 }}
           >
@@ -198,6 +181,7 @@ export default function SignUp() {
             </Button>
 
           </Box>
+
         </Box>
       </Grid>
     </Grid>
