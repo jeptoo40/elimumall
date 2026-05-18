@@ -28,13 +28,14 @@ export default function SignUp() {
 
     try {
 
-      const response = await fetch(
-        "https://elimumall.loveslife.biz/signup.php",
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
+    const response = await fetch(
+  "https://elimumall.loveslife.biz/signup.php",
+  {
+    method: "POST",
+    mode: "cors",
+    body: formData,
+  }
+);
 
       const data = await response.json();
 
