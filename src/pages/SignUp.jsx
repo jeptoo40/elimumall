@@ -37,7 +37,10 @@ export default function SignUp() {
   }
 );
 
-      const data = await response.json();
+      const text = await response.text();
+console.log("RAW RESPONSE:", text);
+
+const data = JSON.parse(text);
 
       console.log(data);
 
